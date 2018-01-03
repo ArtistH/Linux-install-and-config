@@ -2,33 +2,33 @@
 
 ## Install Base
 
-### 0. USB flash? dd bs=4M if=\*.iso of=/dev/sd\* && sync
+### step 0. USB flash? dd bs=4M if=\*.iso of=/dev/sd\* && sync
     shell) timedatectl set-ntp true
 
-### 1. Disk 
+### step 1. Disk 
     shell) cfdisk
 		MBR方式选择dos
 		GPT方式选择gdt
 	shell) mkfs.* /dev/sd*
 	shell) mkswap /dev/sd* && swapon /dev/sd*
 
-### 2. Mount
+### step 2. Mount
 	shell) lsblk /dev/sd*
 	shell) mount /dev/sd* /mnt
 	shell) mkdir /mnt/data && mount /dev/sd* /mnt/data
 
-### 3. Install
+### step 3. Install
 	# pacman -Syy
 	# pacstrap /mnt base base-devel
 
-### 4. shell) genfstab -U -p /mnt >> /mnt/etc/fstab
+### step 4. shell) genfstab -U -p /mnt >> /mnt/etc/fstab
 
-### 5. shell) arch-chroot /mnt /bin/bash
+### step 5. shell) arch-chroot /mnt /bin/bash
 
-### 6. Time
+### step 6. Time
     shell) ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
   
-### 7. Locale
+### step 7. Locale
 	1) /etc/locale.gen
 	_____________________
 	en_US.UTF-8 UTF-8
@@ -42,16 +42,16 @@
 	2) shell) locale-gen
 
 	
-### 8. shell) mkinitcpio -p linux
+### step 8. shell) mkinitcpio -p linux
 
-### 9. shell) passwd root
+### step 9. shell) passwd root
 
-### 10. Install bootloader
+### step 10. Install bootloader
 	shell) pacman -S grub os-prober
 	shell) grub-install --recheck /dev/sda
 	shell) grub-mkconfig -o /boot/grub/grub.cfg
 
-### 11. Network
+### step 11. Configure Network
 	1) hostname
 	shell) echo Arch > /etc/hostname
 
@@ -63,11 +63,11 @@
 	只需配置/etc/dhcpcd.conf 在末尾加上一句nohook resolv.conf即可,
 	dhcpd就不会刷新resolv.conf文件.
 
-### 12. umount 
+### step 12. umount 
 	shell) exit
 	shell) umount -R /mnt
 
-### 13. reboot
+### step 13. reboot
 
 
 ## Config 
@@ -117,7 +117,9 @@
 	shell) systemctl enable sshd.service # 开机启动
 	
 	/etc/ssh/sshd_config
-	    PermitRootLogin yes	# 允许root登陆
+    __________________________________
+	PermitRootLogin yes	# 允许root登陆
+    __________________________________
 
 ### 2. lrzsz
 	shell) pacman -S lrzsz
@@ -158,63 +160,65 @@
 # INSTALL(CentOS 7)
 
 ### Install necessary
-yum install vim  
-yum install git   
-yum install wget  
-yum install gcc   
-yum install gcc-c++   
-yum install patch   
-yum install bc   
-yum install ncurses-devel   
+    shell) yum install vim  
+    shell) yum install git   
+    shell) yum install wget  
+    shell) yum install gcc   
+    shell) yum install gcc-c++   
+    shell) yum install patch   
+    shell) yum install bc   
+    shell) yum install ncurses-devel   
 
-yum install glibc-devel.i686   
-yum install glibc-static.i686   
-yum install libgcc.i686 (-m32 编译, 运行32位程序)   
+    shell) yum install glibc-devel.i686   
+    shell) yum install glibc-static.i686   
+    shell) yum install libgcc.i686 (-m32 编译, 运行32位程序)   
 
-yum install strace(跟踪系统调用)   
-yum install ltrace(跟踪库函数调用)   
+    shell) yum install strace(跟踪系统调用)   
+    shell) yum install ltrace(跟踪库函数调用)   
 
 ### Install qemu
-git clone git://git.qemu-project.org/qemu.git
+    shell) git clone git://git.qemu-project.org/qemu.git
 
-yum install zlib-devel   
-yum install glib2-devel   
-yum install pixman-devel   
-yum install SDL   
-yum install SDL-devel   
-cd qemu; git submodule update --init dtc   
+    shell) yum install zlib-devel   
+    shell) yum install glib2-devel   
+    shell) yum install pixman-devel   
+    shell) yum install SDL   
+    shell) yum install SDL-devel   
+    shell) cd qemu; git submodule update --init dtc   
 
-./configure
-make 
-make install
+    shell) ./configure
+    shell) make 
+    shell) make install
 
 ### lspci
-1) yum whatprovides \*/lspci # 查找lspci是通过哪个安装包来提供的   
-2) yum install pciutils 
+    shell) 1) yum whatprovides \*/lspci # 查找lspci是通过哪个安装包来提供的   
+    shell) 2) yum install pciutils 
 
 ### Install Xfce Desktop
-yum install epel-release    
-yum groupinstall "X Window system"  
-yum groupinstall Xfce   
+    shell) yum install epel-release    
+    shell) yum groupinstall "X Window system"  
+    shell) yum groupinstall Xfce   
 
-yum install cjkuni-uming-fonts 中文字体 
+    shell) yum install cjkuni-uming-fonts 中文字体 
 
 ### Startx
-systemctl isolate graphical.target
+    shell) systemctl isolate graphical.target
 
 
 
 # INSTALL(XUbuntu 16.04 LTS 32bit)
 
-## Install necessary
-sudo apt-get install vim    
-sudo apt-get install git    
-sudo apt-get install ncurses-devel  
+### Install necessary
+    shell) sudo apt-get install vim    
+    shell) sudo apt-get install git    
+    shell) sudo apt-get install ncurses-devel  
 
 
 # FAQ
-1. piix4_smbus xxxx:xx:xx: smbus controller not enabled!
+## 1. piix4\_smbus xxxx:xx:xx: smbus controller not enabled!
 	/etc/modprobe.d/blacklist.conf   
-	    blacklist i2c_piix4      
+    ___________________
+	blacklist i2c_piix4      
+    ___________________
 	shell) reboot    
 
