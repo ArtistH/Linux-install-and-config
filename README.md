@@ -70,7 +70,7 @@
 ### 13. reboot
 
 
-## Install necessary
+## Config 
 
 ### 0. pacman
 	pacman -Syu	# 同步源, 并更新系统
@@ -96,104 +96,35 @@
 	pacman -U  pkg	# 安装下载的abs包, 或新编译的pkg包
 	pacman -Sd pkg  # 忽略依赖性问题, 安装包pkg 
 
-2. Users
-	1) # useradd -m -s /bin/bash artist
-	   # passwd artist
+### 2. Users
+	1) shell) useradd -m -s /bin/bash artist
+	   shell) passwd artist
 
-	2) pacman -S sudo
+	2) shell) pacman -S sudo
 
 	3) sudo: /etc/sudoers
-	__________________________________________
-	## Allow root to run any commands anywhere
-	root	ALL=(ALL)	ALL
-	artist	ALL=(ALL)	NOPASSWD:ALL
-	__________________________________________
+	    \## Allow root to run any commands anywhere
+	    root	ALL=(ALL)	ALL
+	    artist	ALL=(ALL)	NOPASSWD:ALL
 
-	4) # userdel -r artist
+	4) shell) userdel -r artist
 
-3. create ~/.bash_profile
+## Install necessary
 
-	____________________________________________________________________________________________________
-	# PATH
-	PATH=$PATH:/usr/local/sbin:/usr/local/bin
-	export PATH
-
-	PS1='[\u@\h \W]\$ '
-	PS1='\[\033[0;32m\]\A \[\033[0;31m\]\u\[\033[0;34m\] \[\033[00;36m\]\W\[\033[0;33m\] \$\[\033[0m\] '
- 
-	eval "`dircolors -b`"
-	alias ls="ls --color=auto"
-	alias dir="dir --color=auto"
-	alias vdir="vdir --color=auto"
-	alias grep="grep --color=auto"
-	alias fgrep="grep --color=auto"
-	alias egrep="egrep --color=auto"
-	alias ll="ls -l"
-	____________________________________________________________________________________________________
-
-4. X-window
-
-    0) display driver
-	# lspci | grep VGA (查看显卡型号)
-	# pacman -S xf86-video-nouveau(开源的, 适合大多数人)
-	or:
-	NVIDIA:	# pacman -S nvidia
-	ATI: 	# pacman -S xf86-video-ati
-	or: 
-	vmware: # pacman -S xf86-video-vmware
-
-	1) 安装xorg组 
-	# pacman -S xorg 
-    # pacman -S xorg-xinit xterm
-
-	3) 安装xfce4 
-	# pacman -S xfce4
-
-    4) 安装LightDM登录管理器
-    # pacman -S lightdm lightdm-gtk-greeter
-    # systemctl start lightdm.service
-    # systemctl enable lightdm.service
-	
-	5) 安装open-vm-tools使自动调整屏幕分辨率
-	# pacman -S open-vm-tools
-
-    6) 安装中文字体
-    # pacman -S wqy-microhei wqy-zenhei wqy-bitmapfont wqy-microhei-lite
-
-5. qemu
-    1) pacman -S python2
-    2) ./configure --python=/usr/bin/python2.7
-    3) make
-    4) make install
-
-6. clean /var/cache/pacman/pkg/*.pkg.tar.xz
-	# pacman -Scc
-	# pacman -Sc
-
-
-INSTALL & CONFIG : PART3
-========================
-
-0. Grub
-	0) # grub
-	1) grub> find /boot/grub/stage1
-	2) grub> root (hd0, X)
-	3) grub> setup(hd0) # Install the grub to MBR.
-
-1. ssh
-	# pacman -S openssh
-	# systemctl start sshd
-	# systemctl enable sshd.service # 开机启动
+### 1. ssh
+	shell) pacman -S openssh
+	shell) systemctl start sshd
+	shell) systemctl enable sshd.service # 开机启动
 	
 	/etc/ssh/sshd_config
-	PermitRootLogin yes	# 允许root登陆
+	    PermitRootLogin yes	# 允许root登陆
 
-2. lrzsz
-	# pacman -S lrzsz
-	sz: 将选定的文件发送(send)到本地机器
-	rz: 运行该命令会弹出一个文件选择窗口, 从本地选择文件上传到Linux服务器.
+### 2. lrzsz
+	shell) pacman -S lrzsz
+	    sz: 将选定的文件发送(send)到本地机器
+	    rz: 运行该命令会弹出一个文件选择窗口, 从本地选择文件上传到Linux服务器.
 
-3. ncftp-client:
+### 3. ncftp-client:
 	1) tar jxvf ncftp-3.2.5-src.tar.bz2
 	2) ./configure
 	3) make
@@ -201,32 +132,28 @@ INSTALL & CONFIG : PART3
 	5) Eg: 将本地local/目录内的所有文件和目录, 上传到FTP服务器的Ftp/目录内(如果不存在Ftp/目录则自动创建).
           /usr/local/ncftp/bin/ncftpput -u FTP帐号 -p FTP密码 -P FTP端口 -m -R servip Ftp/ local/*
 
-4. kermit
+### 4. kermit
     kermrc
-	_____________________
-	set line /dev/ttyS0
-	set speed 9600
-	set carrier-watch off
-	set handshake none
-	set flow-control none
-	robust
-	set file type bin
-	set file name lit
-	set rec pack 1000
-	set send pack 1000
-	set window 5
-	_____________________
+	    set line /dev/ttyS0
+	    set speed 9600
+	    set carrier-watch off
+	    set handshake none
+	    set flow-control none
+	    robust
+	    set file type bin
+	    set file name lit
+	    set rec pack 1000
+	    set send pack 1000
+	    set window 5
 
-
-
-COMPILE REDBOOT
-===============
-
+### 5. COMPILE REDBOOT
 	1) cp libtcl.so /usr/lib
 	2) cp libstdc++-libc6.1-1.so.2 /usr/lib
 	3) vi ~/.bash_profile
 		export PATH=${PATH}:/home/src/bootloader/x86/i386-elf/bin
 		export _POSIX2_VERSION=199209
+
+
 
 # INSTALL(CentOS 7)
 
@@ -262,7 +189,7 @@ make
 make install
 
 ### lspci
-1) yum whatprovides */lspci	查找lspci是通过哪个安装包来提供的   
+1) yum whatprovides \*/lspci # 查找lspci是通过哪个安装包来提供的   
 2) yum install pciutils 
 
 ### Install Xfce Desktop
@@ -287,6 +214,7 @@ sudo apt-get install ncurses-devel
 
 # FAQ
 1. piix4_smbus xxxx:xx:xx: smbus controller not enabled!
-	/etc/modprobe.d/blacklist.conf 
-	    blacklist i2c_piix4 
-	shell) reboot 
+	/etc/modprobe.d/blacklist.conf   
+	    blacklist i2c_piix4      
+	shell) reboot    
+
