@@ -288,7 +288,5 @@ sudo apt-get install ncurses-devel
 # FAQ
 1. piix4_smbus xxxx:xx:xx: smbus controller not enabled!
 	/etc/modprobe.d/blacklist.conf 
-    ___________________
-	blacklist i2c_piix4 
-    ___________________
+	    blacklist i2c_piix4 
 	shell) reboot 
