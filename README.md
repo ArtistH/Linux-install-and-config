@@ -1,7 +1,7 @@
 # Install(CentOS 7)
 
 ### Install necessary
-yum install vim
+yum install vim  
 yum install git   
 yum install wget  
 yum install gcc   
@@ -50,9 +50,9 @@ systemctl isolate graphical.target
 # Install(XUbuntu 16.04 LTS 32bit)
 
 ### Install necessary
-sudo apt-get install vim
-sudo apt-get install git
-sudo apt-get install ncurses-devel   
+sudo apt-get install vim    
+sudo apt-get install git    
+sudo apt-get install ncurses-devel  
 
 
 
