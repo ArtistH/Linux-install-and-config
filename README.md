@@ -1,6 +1,6 @@
 # INSTALL(archlinux-2017.09.01-x86_64.iso)
 
-### 0. USB flash? dd bs=4M if=*.iso of=/dev/sd* && sync
+### 0. USB flash? dd bs=4M if=\*.iso of=/dev/sd\* && sync
     shell) timedatectl set-ntp true
 
 ### 1. Disk 
@@ -19,14 +19,14 @@
 	# pacman -Syy
 	# pacstrap /mnt base base-devel
 
-4. genfstab -U -p /mnt >> /mnt/etc/fstab
+### 4. shell) genfstab -U -p /mnt >> /mnt/etc/fstab
 
-5. arch-chroot /mnt /bin/bash
+### 5. shell) arch-chroot /mnt /bin/bash
 
-6. Time
-    # ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+### 6. Time
+    shell) ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
   
-7. Locale
+### 7. Locale
 	1) /etc/locale.gen
 	_____________________
 	en_US.UTF-8 UTF-8
@@ -37,35 +37,35 @@
 	zh_CN GB2312
 	_____________________
 
-	2) # locale-gen
+	2) shell) locale-gen
 
 	
-8. mkinitcpio -p linux
+### 8. shell) mkinitcpio -p linux
 
-9. passwd root
+### 9. shell) passwd root
 
-10. Install bootloader
-	# pacman -S grub os-prober
-	# grub-install --recheck /dev/sda
-	# grub-mkconfig -o /boot/grub/grub.cfg
+### 10. Install bootloader
+	shell) pacman -S grub os-prober
+	shell) grub-install --recheck /dev/sda
+	shell) grub-mkconfig -o /boot/grub/grub.cfg
 
-11. Network
+### 11. Network
 	1) hostname
-	# echo Arch > /etc/hostname
+	shell) echo Arch > /etc/hostname
 
 	2) dhcp
-	# systemctl enable dhcpcd.service   # 开机自动连接
+	shell) systemctl enable dhcpcd.service   # 开机自动连接
 
 	因为默认开启了DHCP服务, 所以写好的DNS将会在下次重启时消失.
 	这是因为dhcpd服务刷新了这个文件.
 	只需配置/etc/dhcpcd.conf 在末尾加上一句nohook resolv.conf即可,
 	dhcpd就不会刷新resolv.conf文件.
 
-12. umount 
-	# exit
-	# umount -R /mnt
+### 12. umount 
+	shell) exit
+	shell) umount -R /mnt
 
-13. reboot
+### 13. reboot
 
 
 
@@ -293,7 +293,7 @@ sudo apt-get install ncurses-devel
 
 
 
-# Config
+# bash config file
 ## bash_profile
 终端配置文件
 
