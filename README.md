@@ -209,6 +209,7 @@
 # INSTALL(XUbuntu 16.04 LTS 32bit)
 
 ### Install necessary
+    shell) sudo apt-get install openssh-server
     shell) sudo apt-get install vim    
     shell) sudo apt-get install git    
     shell) sudo apt-get install ncurses-devel  
