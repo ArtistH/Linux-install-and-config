@@ -1,25 +1,21 @@
-archlinux-2017.09.01-x86_64.iso
+# INSTALL(archlinux-2017.09.01-x86_64.iso)
 
+### 0. USB flash? dd bs=4M if=*.iso of=/dev/sd* && sync
+    shell) timedatectl set-ntp true
 
-INSTALL & CONFIG : PART1
-========================
-
-0. USB flash? dd bs=4M if=*.iso of=/dev/sd* && sync
-	# timedatectl set-ntp true
-
-1. Disk 
-	# cfdisk
+### 1. Disk 
+    shell) cfdisk
 		MBR方式选择dos
 		GPT方式选择gdt
-	# mkfs.* /dev/sd*
-	# mkswap /dev/sd* && swapon /dev/sd*
+	shell) mkfs.* /dev/sd*
+	shell) mkswap /dev/sd* && swapon /dev/sd*
 
-2. Mount
-	# lsblk /dev/sd*
-	# mount /dev/sd* /mnt
-	# mkdir /mnt/data && mount /dev/sd* /mnt/data
+### 2. Mount
+	shell) lsblk /dev/sd*
+	shell) mount /dev/sd* /mnt
+	shell) mkdir /mnt/data && mount /dev/sd* /mnt/data
 
-3. Install
+### 3. Install
 	# pacman -Syy
 	# pacstrap /mnt base base-devel
 
@@ -239,7 +235,7 @@ COMPILE REDBOOT
 		export PATH=${PATH}:/home/src/bootloader/x86/i386-elf/bin
 		export _POSIX2_VERSION=199209
 
-# Install(CentOS 7)
+# INSTALL(CentOS 7)
 
 ### Install necessary
 yum install vim  
@@ -288,7 +284,7 @@ systemctl isolate graphical.target
 
 
 
-# Install(XUbuntu 16.04 LTS 32bit)
+# INSTALL(XUbuntu 16.04 LTS 32bit)
 
 ### Install necessary
 sudo apt-get install vim    
