@@ -1,5 +1,7 @@
 # INSTALL(archlinux-2017.09.01-x86_64.iso)
 
+## Install Base
+
 ### 0. USB flash? dd bs=4M if=\*.iso of=/dev/sd\* && sync
     shell) timedatectl set-ntp true
 
@@ -68,11 +70,9 @@
 ### 13. reboot
 
 
+## Install necessary
 
-INSTALL & CONFIG : PART2
-========================
-
-0.  pacman
+### 0. pacman
 	pacman -Syu	# 同步源, 并更新系统
 	pacman -Sy	# 仅同步源 
 	pacman -Su	# 更新系统
@@ -95,13 +95,6 @@ INSTALL & CONFIG : PART2
 
 	pacman -U  pkg	# 安装下载的abs包, 或新编译的pkg包
 	pacman -Sd pkg  # 忽略依赖性问题, 安装包pkg 
-
-1. piix4_smbus ****host smbus controller not enabled
-	# lsmod | grep i2c_piix4 
-	i2c_piix4              12574  0 
-	/etc/modprobe.d/blacklist.conf 
-	blacklist i2c_piix4 
-	# reboot 
 
 2. Users
 	1) # useradd -m -s /bin/bash artist
@@ -286,16 +279,16 @@ systemctl isolate graphical.target
 
 # INSTALL(XUbuntu 16.04 LTS 32bit)
 
-### Install necessary
+## Install necessary
 sudo apt-get install vim    
 sudo apt-get install git    
 sudo apt-get install ncurses-devel  
 
 
-
-# bash config file
-## bash_profile
-终端配置文件
-
-## vimrc
-vim配置文件
+# FAQ
+1. piix4_smbus xxxx:xx:xx: smbus controller not enabled!
+	/etc/modprobe.d/blacklist.conf 
+    ___________________
+	blacklist i2c_piix4 
+    ___________________
+	shell) reboot 
