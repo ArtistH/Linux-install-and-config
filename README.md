@@ -176,6 +176,8 @@
     shell) yum install strace(跟踪系统调用)   
     shell) yum install ltrace(跟踪库函数调用)   
 
+    shell) yum install libcgroup-tools(cgroup-tools)
+
 ### Install qemu
     shell) git clone git://git.qemu-project.org/qemu.git
 
@@ -212,6 +214,8 @@
     shell) sudo apt-get install openssh-server
     shell) sudo apt-get install git    
     shell) sudo apt-get install ncurses-devel  
+
+    shell) sudo apt install cgroup-tools
 
 
 # FAQ
