@@ -196,6 +196,14 @@
     shell) 1) yum whatprovides \*/lspci # 查找lspci是通过哪个安装包来提供的   
     shell) 2) yum install pciutils 
 
+### pip(python包管理工具)
+    shell) yum install python-pip
+    shell) pip install --upgrade pip
+
+### matplotlib(smem绘制饼柱图仍有问题)
+    shell) yum install python-devel
+    shell) pip install matplotlib
+    
 ### Install Xfce Desktop
     shell) yum install epel-release    
     shell) yum groupinstall "X Window system"  
