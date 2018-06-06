@@ -1,8 +1,8 @@
-# INSTALL(archlinux-2017.09.01-x86_64.iso)
+# INSTALL(archlinux-2017.09.01-x86\_64.iso)
 
 ## Install Base
 
-### step 0. USB flash? dd bs=4M if=\*.iso of=/dev/sd\* && sync
+### step 0. USB flash? dd bs=4M if=\*.iso of=/dev/sdX && sync
     shell) timedatectl set-ntp true
 
 ### step 1. Disk 
@@ -103,7 +103,7 @@
 	2) shell) pacman -S sudo
 
 	3) sudo: /etc/sudoers
-	    \## Allow root to run any commands anywhere
+	    ## Allow root to run any commands anywhere
 	    root	ALL=(ALL)	ALL
 	    artist	ALL=(ALL)	NOPASSWD:ALL
 
@@ -161,7 +161,7 @@
 
 ### Install necessary
     shell) yum install open-vm-tools.x86_64
-    shell) yum install open-vm-tools-desktop.x86\_64
+    shell) yum install open-vm-tools-desktop.x86_64
 
     shell) yum install vim  
     shell) yum install git   
@@ -197,7 +197,7 @@
     shell) make install
 
 ### lspci
-    shell) 1) yum whatprovides \*/lspci # 查找lspci是通过哪个安装包来提供的   
+    shell) 1) yum whatprovides */lspci # 查找lspci是通过哪个安装包来提供的   
     shell) 2) yum install pciutils 
 
 ### pip(python包管理工具)
@@ -234,7 +234,7 @@
 
 
 # FAQ
-## 1. piix4\_smbus xxxx:xx:xx: smbus controller not enabled!
+## 1. piix4_smbus xxxx:xx:xx: smbus controller not enabled!
 	/etc/modprobe.d/blacklist.conf   
     ___________________
 	blacklist i2c_piix4      
