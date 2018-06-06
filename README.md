@@ -160,11 +160,15 @@
 # INSTALL(CentOS 7)
 
 ### Install necessary
+    shell) yum install open-vm-tools.x86_64
+    shell) yum install open-vm-tools-desktop.x86\_64
+
     shell) yum install vim  
     shell) yum install git   
     shell) yum install wget  
     shell) yum install gcc   
     shell) yum install gcc-c++   
+
     shell) yum install patch   
     shell) yum install bc   
     shell) yum install ncurses-devel   
@@ -208,11 +212,14 @@
     shell) yum install epel-release    
     shell) yum groupinstall "X Window system"  
     shell) yum groupinstall Xfce   
+    shell) yum install xfce4-terminal # xfce下的命令行工具, 不安装的话无法再xfce进入命令行
 
     shell) yum install cjkuni-uming-fonts 中文字体 
 
 ### Startx
+    shell) startxfce4
     shell) systemctl isolate graphical.target
+    # 先startxfce4后systemctl isolate graphical.target
 
 
 
