@@ -163,6 +163,7 @@
     shell) yum install open-vm-tools.x86_64
     shell) yum install open-vm-tools-desktop.x86_64
 
+    shell) yum install man-pages  
     shell) yum install vim  
     shell) yum install git   
     shell) yum install wget  
