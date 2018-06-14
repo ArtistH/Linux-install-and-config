@@ -183,6 +183,9 @@
 
     shell) yum install libcgroup-tools(cgroup-tools)
 
+### Install kernel-devel
+    shell) yum install kernel-devel 省去重新编译安装新内核
+
 ### Install qemu
     shell) git clone git://git.qemu-project.org/qemu.git
 
