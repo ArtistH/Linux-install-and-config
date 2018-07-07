@@ -1,6 +1,4 @@
-# INSTALL(CentOS 7)
-
-### Install necessary
+## Install necessary
     shell> yum install open-vm-tools.x86_64
     shell> yum install open-vm-tools-desktop.x86_64
 
@@ -24,10 +22,10 @@
 
     shell> yum install libcgroup-tools(cgroup-tools)
 
-### Install kernel-devel
+## Install kernel-devel
     shell> yum install kernel-devel 省去重新编译安装新内核
 
-### Install qemu
+## Install qemu
     shell> git clone git://git.qemu-project.org/qemu.git
 
     shell> yum install zlib-devel   
@@ -41,19 +39,19 @@
     shell> make 
     shell> make install
 
-### lspci
+## lspci
     shell> 1) yum whatprovides */lspci # 查找lspci是通过哪个安装包来提供的   
     shell> 2) yum install pciutils 
 
-### pip(python包管理工具)
+## pip(python包管理工具)
     shell> yum install python-pip
     shell> pip install --upgrade pip
 
-### matplotlib(smem绘制饼柱图仍有问题)
+## matplotlib(smem绘制饼柱图仍有问题)
     shell> yum install python-devel
     shell> pip install matplotlib
     
-### Install Xfce Desktop
+## Install Xfce Desktop
     shell> yum install epel-release    
     shell> yum groupinstall "X Window system"  
     shell> yum groupinstall Xfce   
@@ -61,7 +59,7 @@
 
     shell> yum install cjkuni-uming-fonts 中文字体 
 
-### Startx
+## Startx
     shell> startxfce4
     shell> systemctl isolate graphical.target
     # 先startxfce4后systemctl isolate graphical.target

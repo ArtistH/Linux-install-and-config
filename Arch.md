@@ -1,6 +1,4 @@
-# INSTALL(archlinux-2017.09.01-x86\_64.iso)
-
-## Install Base
+# Install Base
 
 ### step 0. USB flash? dd bs=4M if=\*.iso of=/dev/sdX && sync
     shell> timedatectl set-ntp true
@@ -70,7 +68,7 @@
 ### step 13. reboot
 
 
-## Config 
+# Config 
 
 ### 0. pacman
 	pacman -Syu	# 同步源, 并更新系统
@@ -109,7 +107,7 @@
 
 	4) shell> userdel -r artist
 
-## Install necessary
+# Install necessary
 
 ### 1. ssh
 	shell> pacman -S openssh
@@ -154,4 +152,3 @@
 	3) vi ~/.bash_profile
 		export PATH=${PATH}:/home/src/bootloader/x86/i386-elf/bin
 		export _POSIX2_VERSION=199209
-
