@@ -17,7 +17,8 @@
 
 ## 删除旧内核
     $ dpkg --get-selections | grep linux-
-    $ sudo apt autoremove --purge   linux-image-xxx linux-headers-xxx   自动删除
+    $ sudo apt-get --purge linux-image-
+    $ sudo apt-get --purge linux-headers-
     $ sudo update-grub2
 
 ## 删除无用软件包
