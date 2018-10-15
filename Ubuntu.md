@@ -21,8 +21,8 @@
 
 ## 删除旧内核
     $ dpkg --get-selections | grep linux-
-    $ sudo apt-get --purge linux-image-
-    $ sudo apt-get --purge linux-headers-
+    $ sudo apt-get purge linux-image-
+    $ sudo apt-get purge linux-headers-
     $ sudo update-grub2
 
 ## 删除无用软件包
