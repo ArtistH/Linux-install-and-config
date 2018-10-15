@@ -2,6 +2,10 @@
     $ sudo apt-get update
     $ sudo apt-get upgrad
 
+## 清空不必要的安装缓存
+    $ sudo apt-get autoclean
+    $ sudo apt-get autoremove
+
 ## Install necessary
     $ sudo apt-get install open-vm-tools            自动适应窗口大小
     $ sudo apt-get install open-vm-tools-desktop    虚拟机与主机之间复制粘贴
