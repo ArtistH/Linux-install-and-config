@@ -1,6 +1,6 @@
 ## 修改源后执行
     $ sudo apt-get update
-    $ sudo apt-get upgrad
+    $ sudo apt-get upgrade
 
 ## 清空不必要的安装缓存
     $ sudo apt-get autoclean
