@@ -23,7 +23,7 @@
     $ dpkg --get-selections | grep linux-
     $ sudo apt-get purge linux-image-
     $ sudo apt-get purge linux-headers-
-    $ sudo update-grub2
+    $ sudo update-grub
 
 ## 删除无用软件包
     $ sudo apt-get remove thunderbird simple-scan gnome-mines transmission-common gnome-sudoku
@@ -33,4 +33,4 @@
     /etc/default/grub
     GRUB_HIDDEN_TIMEOUT=5
     GRUB_HIDDEN_TIMEOUT_QUIET=false
-    $ sudo grub-update
+    $ sudo update-grub
