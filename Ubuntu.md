@@ -21,13 +21,11 @@
 
 ## 删除旧内核
     $ dpkg --get-selections | grep linux-
-    $ sudo apt-get purge linux-image-
     $ sudo apt-get purge linux-headers-
-    $ sudo update-grub
+    $ sudo apt-get purge linux-modules-
 
 ## 删除无用软件包
     $ sudo apt-get remove thunderbird simple-scan gnome-mines transmission-common gnome-sudoku
-
 
 ## 显示grub菜单
     /etc/default/grub
