@@ -22,6 +22,8 @@
 
     shell> yum install libcgroup-tools(cgroup-tools)
 
+    shell> yum install bash-completion(for git completion)
+
 ## Install kernel-devel
     shell> yum install kernel-devel 省去重新编译安装新内核
 
