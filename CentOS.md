@@ -27,6 +27,11 @@
 ## Install kernel-devel
     shell> yum install kernel-devel 省去重新编译安装新内核
 
+## Install systemstap
+    shell> yum install systemtap systemtap-runtime
+    正常运行仍然需要编译一个新内核并安装, 否则会报错:
+    Missing separate debuginfos, use: debuginfo-install kernel-xxx
+
 ## Install qemu
     shell> git clone git://git.qemu-project.org/qemu.git
 
