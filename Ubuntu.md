@@ -24,9 +24,6 @@
     $ sudo apt-get purge linux-headers-
     $ sudo apt-get purge linux-modules-
 
-## 删除无用软件包
-    $ sudo apt-get remove thunderbird simple-scan gnome-mines transmission-common gnome-sudoku
-
 ## 显示grub菜单
     /etc/default/grub
     GRUB_HIDDEN_TIMEOUT=5
