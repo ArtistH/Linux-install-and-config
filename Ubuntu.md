@@ -26,6 +26,6 @@
 
 ## 显示grub菜单
     /etc/default/grub
-    GRUB_HIDDEN_TIMEOUT=5
-    GRUB_HIDDEN_TIMEOUT_QUIET=false
+    GRUB_TIMEOUT=5
+    #GRUB_TIMEOUT_STYLE=hidden
     $ sudo update-grub
