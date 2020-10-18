@@ -21,7 +21,7 @@
 
 ## 删除旧内核
     $ dpkg --get-selections | grep linux-
-    $ sudo apt-get purge linux-headers-
+    $ sudo apt-get purge linux-hwe-
     $ sudo apt-get purge linux-modules-
 
 ## 显示grub菜单
