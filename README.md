@@ -6,10 +6,10 @@
 
 # FAQ
 ## piix4_smbus xxxx:xx:xx: smbus controller not enabled! 
-    /etc/modprobe.d/blacklist.conf    
+    /etc/modprobe.d/blacklist.conf
     ___________________ 
-    blacklist i2c_piix4       
+    blacklist i2c_piix4
     ___________________ 
-    shell> reboot    
+    shell> reboot
 
-# bash\_profile
+# bash_profile
