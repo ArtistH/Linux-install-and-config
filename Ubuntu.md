@@ -13,6 +13,8 @@
     $ sudo apt-get install openssh-server
     $ sudo apt-get install git    
 
+    $ sudo apt-get install manpages-de manpages-de-dev manpages-dev glibc-doc manpages-posix manpages-posix-dev
+
 ## 编译内核必须
     $ sudo apt-get install libncurses-dev
     $ sudo apt-get install libssl-dev
